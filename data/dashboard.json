@@ -3,7 +3,7 @@
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
   "lead_label": "Actual Roth account value",
-  "total_value": 1862.0,
+  "total_value": 1929.220555125963,
   "required_action": "No action",
   "next_review": "August 2027",
   "explanation": "Daily tracking starts with the actual $1,862 Roth account value on August 3, 2026. Both comparison benchmarks use the same starting dollars and date.",
@@ -12,10 +12,10 @@
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 558.6,
-      "weight": 30.0,
+      "value": 577.57,
+      "weight": 29.938231556158424,
       "target": 30,
-      "drift": 0.0,
+      "drift": -0.06176844384157576,
       "position": "QQQ",
       "signal": "Defensive",
       "action": "No action",
@@ -23,10 +23,10 @@
     },
     {
       "name": "CHAT",
-      "value": 465.5,
-      "weight": 25.0,
+      "value": 491.59,
+      "weight": 25.481039696082302,
       "target": 25,
-      "drift": 0.0,
+      "drift": 0.481039696082302,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
@@ -34,10 +34,10 @@
     },
     {
       "name": "QTUM",
-      "value": 465.5,
-      "weight": 25.0,
+      "value": 487.66,
+      "weight": 25.277596246370116,
       "target": 25,
-      "drift": 0.0,
+      "drift": 0.27759624637011626,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
@@ -46,9 +46,9 @@
     {
       "name": "BTC / Cash",
       "value": 372.4,
-      "weight": 20.0,
+      "weight": 19.303132501389154,
       "target": 20,
-      "drift": 0.0,
+      "drift": -0.6968674986108461,
       "position": "Cash",
       "signal": "Risk-off",
       "action": "No action",
@@ -58,23 +58,23 @@
   "benchmarks": [
     {
       "name": "Active Roth account",
-      "value": 1862.0,
-      "return_pct": 0.0,
+      "value": 1929.220555125963,
+      "return_pct": 3.6101264836714932,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 1862.0,
-      "return_pct": 0.0,
-      "diff": 0.0,
+      "value": 1910.40919656625,
+      "return_pct": 2.5998494396482386,
+      "diff": -18.81135855971297,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 1862.0,
-      "return_pct": 0.0,
-      "diff": 0.0,
+      "value": 1924.1483956461018,
+      "return_pct": 3.337722644796017,
+      "diff": -5.072159479861284,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -109,26 +109,26 @@
     },
     {
       "label": "CHAT close",
-      "value": "$85.30",
+      "value": "$90.08",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$145.99",
+      "value": "$152.94",
       "note": "Buy and hold"
     },
     {
       "label": "Benchmark 1",
-      "value": "$1,862",
+      "value": "$1,910",
       "note": "50/50 QQQ/SPY"
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,862",
+      "value": "$1,924",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-08-03",
-  "generated_at": "2026-08-04T01:45:15+00:00",
+  "market_date": "2026-08-04",
+  "generated_at": "2026-08-04T22:15:31+00:00",
   "footer": "Daily market and strategy refresh at 6:25 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
