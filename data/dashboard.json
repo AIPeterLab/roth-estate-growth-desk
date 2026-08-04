@@ -72,9 +72,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1924.1483956461018,
-      "return_pct": 3.337722644796017,
-      "diff": -5.072159479861284,
+      "value": 1924.1197194989418,
+      "return_pct": 3.33618257244585,
+      "diff": -5.100835627021297,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -129,6 +129,6 @@
     }
   ],
   "market_date": "2026-08-04",
-  "generated_at": "2026-08-04T22:15:31+00:00",
+  "generated_at": "2026-08-04T22:46:13+00:00",
   "footer": "Daily market and strategy refresh at 6:25 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
