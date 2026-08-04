@@ -1,0 +1,134 @@
+{
+  "mark": "R",
+  "title": "Roth Estate-Growth Desk",
+  "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
+  "lead_label": "Normalized model value",
+  "total_value": 31823.81698865268,
+  "required_action": "Annual rebalance review",
+  "next_review": "May 2027",
+  "explanation": "Daily model tracking from a normalized $10,000 start on CHAT's first trading date. Private brokerage balances are not published.",
+  "allocation_label": "Active 30/25/25/20 model",
+  "tracking_start": "2023-05-18",
+  "sleeves": [
+    {
+      "name": "QQQ / QLD",
+      "value": 7308.35,
+      "weight": 22.96503942470388,
+      "target": 30,
+      "drift": -7.034960575296122,
+      "position": "QQQ",
+      "signal": "Defensive",
+      "action": "Rebalance toward target",
+      "note": "Strategy signal controls position"
+    },
+    {
+      "name": "CHAT",
+      "value": 8132.84,
+      "weight": 25.555816516548287,
+      "target": 25,
+      "drift": 0.5558165165482869,
+      "position": "CHAT",
+      "signal": "Hold",
+      "action": "No action",
+      "note": "Annual thesis review"
+    },
+    {
+      "name": "QTUM",
+      "value": 7790.64,
+      "weight": 24.480518563600643,
+      "target": 25,
+      "drift": -0.5194814363993565,
+      "position": "QTUM",
+      "signal": "Hold",
+      "action": "No action",
+      "note": "Annual thesis review"
+    },
+    {
+      "name": "BTC / Cash",
+      "value": 8591.99,
+      "weight": 26.998625495147188,
+      "target": 20,
+      "drift": 6.998625495147188,
+      "position": "Cash",
+      "signal": "Risk-off",
+      "action": "Rebalance toward target",
+      "note": "Strategy signal controls position"
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "Active Roth model",
+      "value": 31823.81698865268,
+      "return_pct": 218.2381698865268,
+      "diff": 0,
+      "rule": "30/25/25/20 active rules"
+    },
+    {
+      "name": "Benchmark 1",
+      "value": 19689.940918020187,
+      "return_pct": 96.89940918020187,
+      "diff": -12133.876070632494,
+      "rule": "QQQ 50% / SPY 50%"
+    },
+    {
+      "name": "Benchmark 2",
+      "value": 26288.19636478115,
+      "return_pct": 162.88196364781152,
+      "diff": -5535.620623871531,
+      "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
+    }
+  ],
+  "rules": [
+    {
+      "title": "Signals decide position",
+      "copy": "QLD/QQQ/Cash and BTC/Cash change only under their written models."
+    },
+    {
+      "title": "Themes stay invested",
+      "copy": "CHAT and QTUM are buy-and-hold sleeves with annual thesis review."
+    },
+    {
+      "title": "Bands decide size",
+      "copy": "Rebalance annually only when a sleeve is outside its stated band."
+    },
+    {
+      "title": "Drawdown is not a sell rule",
+      "copy": "A valid strategy exit or thesis failure is required."
+    }
+  ],
+  "metrics": [
+    {
+      "label": "QQQ strategy",
+      "value": "Hold QQQ",
+      "note": "Donchian signal 0"
+    },
+    {
+      "label": "BTC strategy",
+      "value": "Hold Cash",
+      "note": "Cycle day 836"
+    },
+    {
+      "label": "CHAT close",
+      "value": "$81.96",
+      "note": "Buy and hold"
+    },
+    {
+      "label": "QTUM close",
+      "value": "$141.25",
+      "note": "Buy and hold"
+    },
+    {
+      "label": "Benchmark 1",
+      "value": "$19,690",
+      "note": "50/50 QQQ/SPY"
+    },
+    {
+      "label": "Benchmark 2",
+      "value": "$26,288",
+      "note": "Five-way equal weight"
+    }
+  ],
+  "market_date": "2026-07-31",
+  "generated_at": "2026-08-04T00:41:22+00:00",
+  "footer": "Daily market and strategy refresh at 6:25 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
+}
