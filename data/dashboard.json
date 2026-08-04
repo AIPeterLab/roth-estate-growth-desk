@@ -2,31 +2,31 @@
   "mark": "R",
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
-  "lead_label": "Normalized model value",
-  "total_value": 31823.81698865268,
-  "required_action": "Annual rebalance review",
-  "next_review": "May 2027",
-  "explanation": "Daily model tracking from a normalized $10,000 start on CHAT's first trading date. Private brokerage balances are not published.",
+  "lead_label": "Actual Roth account value",
+  "total_value": 1862.0,
+  "required_action": "No action",
+  "next_review": "August 2027",
+  "explanation": "Daily tracking starts with the actual $1,862 Roth account value on August 3, 2026. Both comparison benchmarks use the same starting dollars and date.",
   "allocation_label": "Active 30/25/25/20 model",
-  "tracking_start": "2023-05-18",
+  "tracking_start": "2026-08-03",
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 7308.35,
-      "weight": 22.96503942470388,
+      "value": 558.6,
+      "weight": 30.0,
       "target": 30,
-      "drift": -7.034960575296122,
+      "drift": 0.0,
       "position": "QQQ",
       "signal": "Defensive",
-      "action": "Rebalance toward target",
+      "action": "No action",
       "note": "Strategy signal controls position"
     },
     {
       "name": "CHAT",
-      "value": 8132.84,
-      "weight": 25.555816516548287,
+      "value": 465.5,
+      "weight": 25.0,
       "target": 25,
-      "drift": 0.5558165165482869,
+      "drift": 0.0,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
@@ -34,10 +34,10 @@
     },
     {
       "name": "QTUM",
-      "value": 7790.64,
-      "weight": 24.480518563600643,
+      "value": 465.5,
+      "weight": 25.0,
       "target": 25,
-      "drift": -0.5194814363993565,
+      "drift": 0.0,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
@@ -45,36 +45,36 @@
     },
     {
       "name": "BTC / Cash",
-      "value": 8591.99,
-      "weight": 26.998625495147188,
+      "value": 372.4,
+      "weight": 20.0,
       "target": 20,
-      "drift": 6.998625495147188,
+      "drift": 0.0,
       "position": "Cash",
       "signal": "Risk-off",
-      "action": "Rebalance toward target",
+      "action": "No action",
       "note": "Strategy signal controls position"
     }
   ],
   "benchmarks": [
     {
-      "name": "Active Roth model",
-      "value": 31823.81698865268,
-      "return_pct": 218.2381698865268,
+      "name": "Active Roth account",
+      "value": 1862.0,
+      "return_pct": 0.0,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 19689.940918020187,
-      "return_pct": 96.89940918020187,
-      "diff": -12133.876070632494,
+      "value": 1862.0,
+      "return_pct": 0.0,
+      "diff": 0.0,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 26288.19636478115,
-      "return_pct": 162.88196364781152,
-      "diff": -5535.620623871531,
+      "value": 1862.0,
+      "return_pct": 0.0,
+      "diff": 0.0,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -109,26 +109,26 @@
     },
     {
       "label": "CHAT close",
-      "value": "$81.96",
+      "value": "$85.30",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$141.25",
+      "value": "$145.99",
       "note": "Buy and hold"
     },
     {
       "label": "Benchmark 1",
-      "value": "$19,690",
+      "value": "$1,862",
       "note": "50/50 QQQ/SPY"
     },
     {
       "label": "Benchmark 2",
-      "value": "$26,288",
+      "value": "$1,862",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-07-31",
-  "generated_at": "2026-08-04T00:41:22+00:00",
+  "market_date": "2026-08-03",
+  "generated_at": "2026-08-04T01:45:15+00:00",
   "footer": "Daily market and strategy refresh at 6:25 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }

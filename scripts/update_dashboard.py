@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request,urlopen
 
-ROOT=Path(__file__).resolve().parents[1]; MODE="roth"; START=date(2023,5,18)
+ROOT=Path(__file__).resolve().parents[1]; MODE="roth"; START=date(2026,8,3); ROTH_INITIAL=1862.0
 SYMBOLS=["QQQ","QLD","SPY","SSO","CHAT","QTUM","BTC-USD"]
 HALVING=date(2024,4,20); BTC_BUY=HALVING-timedelta(days=500); BTC_SELL=HALVING+timedelta(days=540)
 
@@ -56,9 +56,13 @@ def latest_on_or_before(mapping,d):
     k=max(x for x in mapping if x<=d); return mapping[k]
 
 def simulate_roth(px,qs):
-    days=[d for d in aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]}) if d>=date(2023,5,18)]
-    values={"QQQ / QLD":3000.0,"CHAT":2500.0,"QTUM":2500.0,"BTC / Cash":2000.0}; prev=days[0]
-    b1=10000.0;b2=10000.0
+    common=aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]})
+    days=[d for d in common if d>=START]
+    values={"QQQ / QLD":ROTH_INITIAL*.30,"CHAT":ROTH_INITIAL*.25,"QTUM":ROTH_INITIAL*.25,"BTC / Cash":ROTH_INITIAL*.20}
+    b1=ROTH_INITIAL;b2=ROTH_INITIAL
+    if not days:
+        return values,b1,b2,max(set(px["QQQ"])&set(px["SPY"]))
+    prev=days[0]
     for d in days[1:]:
         oldpos=qs[prev][0]; values["QQQ / QLD"]*=px[oldpos][d]/px[oldpos][prev] if oldpos!="Cash" else 1
         values["CHAT"]*=px["CHAT"][d]/px["CHAT"][prev]; values["QTUM"]*=px["QTUM"][d]/px["QTUM"][prev]
@@ -78,9 +82,9 @@ def write():
         sleeves=[]
         for n,t,lo,hi,p,s in specs:
             w=vals[n]/total*100;sleeves.append({"name":n,"value":round(vals[n],2),"weight":w,"target":t,"drift":w-t,"position":p,"signal":s,"action":status_action(w,t,lo,hi),"note":"Annual thesis review" if n in ["CHAT","QTUM"] else "Strategy signal controls position"})
-        active=total; benchmarks=[{"name":"Active Roth model","value":active,"return_pct":active/10000*100-100,"diff":0,"rule":"30/25/25/20 active rules"},{"name":"Benchmark 1","value":b1,"return_pct":b1/10000*100-100,"diff":b1-active,"rule":"QQQ 50% / SPY 50%"},{"name":"Benchmark 2","value":b2,"return_pct":b2/10000*100-100,"diff":b2-active,"rule":"QQQ/SPY/BTC/CHAT/QTUM 20% each"}]
+        active=total; benchmarks=[{"name":"Active Roth account","value":active,"return_pct":active/ROTH_INITIAL*100-100,"diff":0,"rule":"30/25/25/20 active rules"},{"name":"Benchmark 1","value":b1,"return_pct":b1/ROTH_INITIAL*100-100,"diff":b1-active,"rule":"QQQ 50% / SPY 50%"},{"name":"Benchmark 2","value":b2,"return_pct":b2/ROTH_INITIAL*100-100,"diff":b2-active,"rule":"QQQ/SPY/BTC/CHAT/QTUM 20% each"}]
         outside=[x for x in sleeves if x["action"]!="No action"]; action="Annual rebalance review" if outside else "No action"
-        payload={"mark":"R","title":"Roth Estate-Growth Desk","subtitle":"Aggressive long-horizon portfolio · strategy rules before rebalancing","lead_label":"Normalized model value","total_value":active,"required_action":action,"next_review":"May 2027","explanation":"Daily model tracking from a normalized $10,000 start on CHAT's first trading date. Private brokerage balances are not published.","allocation_label":"Active 30/25/25/20 model","tracking_start":"2023-05-18","sleeves":sleeves,"benchmarks":benchmarks,"rules":[{"title":"Signals decide position","copy":"QLD/QQQ/Cash and BTC/Cash change only under their written models."},{"title":"Themes stay invested","copy":"CHAT and QTUM are buy-and-hold sleeves with annual thesis review."},{"title":"Bands decide size","copy":"Rebalance annually only when a sleeve is outside its stated band."},{"title":"Drawdown is not a sell rule","copy":"A valid strategy exit or thesis failure is required."}],"metrics":[{"label":"QQQ strategy","value":f"Hold {qpos}","note":f"Donchian signal {qsig}"},{"label":"BTC strategy","value":f"Hold {bpos}","note":f"Cycle day {cycle}"},{"label":"CHAT close","value":f"${px['CHAT'][market]:,.2f}","note":"Buy and hold"},{"label":"QTUM close","value":f"${px['QTUM'][market]:,.2f}","note":"Buy and hold"},{"label":"Benchmark 1","value":f"${b1:,.0f}","note":"50/50 QQQ/SPY"},{"label":"Benchmark 2","value":f"${b2:,.0f}","note":"Five-way equal weight"}]}
+        payload={"mark":"R","title":"Roth Estate-Growth Desk","subtitle":"Aggressive long-horizon portfolio · strategy rules before rebalancing","lead_label":"Actual Roth account value","total_value":active,"required_action":action,"next_review":"August 2027","explanation":"Daily tracking starts with the actual $1,862 Roth account value on August 3, 2026. Both comparison benchmarks use the same starting dollars and date.","allocation_label":"Active 30/25/25/20 model","tracking_start":"2026-08-03","sleeves":sleeves,"benchmarks":benchmarks,"rules":[{"title":"Signals decide position","copy":"QLD/QQQ/Cash and BTC/Cash change only under their written models."},{"title":"Themes stay invested","copy":"CHAT and QTUM are buy-and-hold sleeves with annual thesis review."},{"title":"Bands decide size","copy":"Rebalance annually only when a sleeve is outside its stated band."},{"title":"Drawdown is not a sell rule","copy":"A valid strategy exit or thesis failure is required."}],"metrics":[{"label":"QQQ strategy","value":f"Hold {qpos}","note":f"Donchian signal {qsig}"},{"label":"BTC strategy","value":f"Hold {bpos}","note":f"Cycle day {cycle}"},{"label":"CHAT close","value":f"${latest_on_or_before(px['CHAT'],market):,.2f}","note":"Buy and hold"},{"label":"QTUM close","value":f"${latest_on_or_before(px['QTUM'],market):,.2f}","note":"Buy and hold"},{"label":"Benchmark 1","value":f"${b1:,.0f}","note":"50/50 QQQ/SPY"},{"label":"Benchmark 2","value":f"${b2:,.0f}","note":"Five-way equal weight"}]}
     else:
         base={"IRA_QQQ":4880.0,"IRA_SPY":4880.0,"IRA_BTC":2550.0,"IRA_CASH":2300.0}; total=sum(base.values()); growth=sum(base[k] for k in ["IRA_QQQ","IRA_SPY","IRA_BTC"]); specs=[("IRA_QQQ",40,35,45,qpos,"Risk-on" if qpos=="QLD" else "Defensive"),("IRA_SPY",40,35,45,spos,"Risk-on" if spos=="SSO" else "Risk-off"),("IRA_BTC",20,15,25,bpos,"Risk-on" if bpos=="BTC" else "Risk-off")]; sleeves=[]
         for n,t,lo,hi,p,s in specs:
