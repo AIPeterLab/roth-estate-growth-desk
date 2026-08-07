@@ -2,20 +2,20 @@
   "mark": "R",
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
-  "lead_label": "Actual Roth account value",
-  "total_value": 1898.6764227296076,
+  "lead_label": "Live modeled Roth value",
+  "total_value": 1909.29,
   "required_action": "No action",
   "next_review": "August 2027",
-  "explanation": "Daily tracking starts with the actual $1,862 Roth account value on August 3, 2026. Both comparison benchmarks use the same starting dollars and date.",
+  "explanation": "Live modeled values apply daily strategy returns to the actual $1,862 Roth account value from August 3, 2026. Private broker balances are not fetched.",
   "allocation_label": "Active 30/25/25/20 model",
   "tracking_start": "2026-08-03",
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 570.23,
-      "weight": 30.033221212446843,
+      "value": 572.35,
+      "weight": 29.977111910710263,
       "target": 30,
-      "drift": 0.033221212446843396,
+      "drift": -0.022888089289736513,
       "position": "QQQ",
       "signal": "Defensive",
       "action": "No action",
@@ -23,10 +23,10 @@
     },
     {
       "name": "CHAT",
-      "value": 480.18,
-      "weight": 25.290242186847824,
+      "value": 486.29,
+      "weight": 25.469677209852883,
       "target": 25,
-      "drift": 0.29024218684782355,
+      "drift": 0.4696772098528825,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
@@ -34,10 +34,10 @@
     },
     {
       "name": "QTUM",
-      "value": 475.86,
-      "weight": 25.062873338135088,
+      "value": 478.25,
+      "weight": 25.048578267314024,
       "target": 25,
-      "drift": 0.06287333813508766,
+      "drift": 0.04857826731402426,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
@@ -46,9 +46,9 @@
     {
       "name": "BTC / Cash",
       "value": 372.4,
-      "weight": 19.61366326257025,
+      "weight": 19.50463261212283,
       "target": 20,
-      "drift": -0.38633673742975105,
+      "drift": -0.4953673878771703,
       "position": "Cash",
       "signal": "Risk-off",
       "action": "No action",
@@ -58,23 +58,23 @@
   "benchmarks": [
     {
       "name": "Active Roth account",
-      "value": 1898.6764227296076,
-      "return_pct": 1.9697326922453016,
+      "value": 1909.29,
+      "return_pct": 2.5397422126745397,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 1894.8313703268043,
-      "return_pct": 1.7632314890872323,
-      "diff": -3.845052402803276,
+      "value": 1899.8585591250917,
+      "return_pct": 2.033220146352946,
+      "diff": -9.431440874908276,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 1900.6257089807755,
-      "return_pct": 2.0744204608365067,
-      "diff": 1.949286251167905,
+      "value": 1910.893041075007,
+      "return_pct": 2.625834644200168,
+      "diff": 1.6030410750070132,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -105,30 +105,30 @@
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 838"
+      "note": "Cycle day 839"
     },
     {
       "label": "CHAT close",
-      "value": "$87.99",
+      "value": "$89.11",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$149.24",
+      "value": "$149.99",
       "note": "Buy and hold"
     },
     {
       "label": "Benchmark 1",
-      "value": "$1,895",
+      "value": "$1,900",
       "note": "50/50 QQQ/SPY"
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,901",
+      "value": "$1,911",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-08-06",
-  "generated_at": "2026-08-06T22:00:57+00:00",
-  "footer": "Daily market and strategy refresh at 6:25 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
+  "market_date": "2026-08-05",
+  "generated_at": "2026-08-07T00:30:23+00:00",
+  "footer": "Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
