@@ -56,21 +56,29 @@ def latest_on_or_before(mapping,d):
     k=max(x for x in mapping if x<=d); return mapping[k]
 
 def simulate_roth(px,qs):
-    common=aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]})
-    days=[d for d in common if d>=START]
     values={"QQQ / QLD":ROTH_INITIAL*.30,"CHAT":ROTH_INITIAL*.25,"QTUM":ROTH_INITIAL*.25,"BTC / Cash":ROTH_INITIAL*.20}
     b1=ROTH_INITIAL;b2=ROTH_INITIAL
-    if not days:
-        return values,b1,b2,max(set(px["QQQ"])&set(px["SPY"]))
-    prev=days[0]
-    for d in days[1:]:
+    market=max(set(px["QQQ"])&set(px["SPY"]))
+    qdays=[d for d in sorted(set(px["QQQ"])&set(px["QLD"])) if d>=START and d<=market]
+    prev=qdays[0]
+    for d in qdays[1:]:
         oldpos=qs[prev][0]; values["QQQ / QLD"]*=px[oldpos][d]/px[oldpos][prev] if oldpos!="Cash" else 1
-        values["CHAT"]*=px["CHAT"][d]/px["CHAT"][prev]; values["QTUM"]*=px["QTUM"][d]/px["QTUM"][prev]
+        prev=d
+    for name,symbol in [("CHAT","CHAT"),("QTUM","QTUM")]:
+        days=[d for d in sorted(px[symbol]) if d>=START and d<=market]
+        if days:values[name]*=px[symbol][days[-1]]/px[symbol][days[0]]
+    bdays=[d for d in sorted(px["BTC-USD"]) if d>=START and d<=market]
+    prev=bdays[0]
+    for d in bdays[1:]:
         if BTC_BUY<=prev<=BTC_SELL:values["BTC / Cash"]*=px["BTC-USD"][d]/px["BTC-USD"][prev]
+        prev=d
+    benchmark_days=[d for d in aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]}) if d>=START and d<=market]
+    prev=benchmark_days[0]
+    for d in benchmark_days[1:]:
         b1*=.5*px["QQQ"][d]/px["QQQ"][prev]+.5*px["SPY"][d]/px["SPY"][prev]
         b2*=sum(.2*px[s][d]/px[s][prev] for s in ["QQQ","SPY","BTC-USD","CHAT","QTUM"])
         prev=d
-    return values,b1,b2,days[-1]
+    return values,b1,b2,market
 
 def status_action(weight,target,lo,hi):return "Rebalance toward target" if weight<lo or weight>hi else "No action"
 def write():
@@ -92,5 +100,9 @@ def write():
         sleeves.append({"name":"IRA_CASH","value":base["IRA_CASH"],"weight":base["IRA_CASH"]/total*100,"target":base["IRA_CASH"]/total*100,"drift":0,"position":"Cash","signal":"Reserve","action":"Confirm 3-year coverage","note":"Excluded from 40/40/20 target"}); outside=[x for x in sleeves[:3] if x["action"]!="No action"]
         payload={"mark":"IRA","title":"IRA Reserve & Growth Desk","subtitle":"3-year cash reserve plus 40/40/20 growth sleeve","lead_label":"Guide account value","total_value":total,"required_action":"Confirm reserve; "+("rebalance review" if outside else "no growth rebalance"),"next_review":"August 2027","explanation":"Account balances are the August 3 guide values. Daily refresh updates market signals; broker balances remain private and require a manual value update.","allocation_label":"Growth target 40/40/20","tracking_start":"2026-08-03","sleeves":sleeves,"benchmarks":[{"name":"Full IRA guide value","value":total,"return_pct":0,"diff":0,"rule":"Reserve plus growth sleeve"},{"name":"Growth sleeve","value":growth,"return_pct":0,"diff":growth-total,"rule":"QQQ/SPY/BTC only"},{"name":"Cash reserve","value":base["IRA_CASH"],"return_pct":0,"diff":base["IRA_CASH"]-total,"rule":"Withdrawals first for 3 years"}],"rules":[{"title":"Check reserve first","copy":"Confirm IRA_CASH covers the intended three-year withdrawal need."},{"title":"Apply strategy signals","copy":"QQQ, SPY, and BTC sleeve positions follow their source models."},{"title":"Calculate growth-only weights","copy":"Use IRA_QQQ, IRA_SPY, and IRA_BTC for the 40/40/20 test."},{"title":"Defensive signal wins","copy":"Never override an exit merely because a sleeve is below target."}],"metrics":[{"label":"Cash reserve","value":f"${base['IRA_CASH']:,.0f}","note":"3-year protection bucket"},{"label":"Growth sleeve","value":f"${growth:,.0f}","note":"84.3% of full IRA"},{"label":"QQQ strategy","value":f"Hold {qpos}","note":f"Donchian signal {qsig}"},{"label":"SPY strategy","value":f"Hold {spos}","note":f"SPY ${px['SPY'][market]:.2f} · SMA200 ${ssma:.2f}"},{"label":"BTC strategy","value":f"Hold {bpos}","note":f"Cycle day {cycle}"},{"label":"Annual band test","value":"In band" if not outside else "Review","note":"QQQ 35–45 · SPY 35–45 · BTC 15–25"}]}
     payload.update({"market_date":str(market),"generated_at":datetime.now(timezone.utc).isoformat(timespec="seconds"),"footer":"Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."})
-    (ROOT/"data").mkdir(exist_ok=True);(ROOT/"data"/"dashboard.json").write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
+    out=ROOT/"data"/"dashboard.json"
+    if out.exists():
+        previous=json.loads(out.read_text(encoding="utf-8"))
+        if previous.get("market_date","")>payload["market_date"]:raise RuntimeError(f"Refusing to replace newer market date {previous['market_date']} with {payload['market_date']}")
+    out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
 if __name__=="__main__":write()
