@@ -105,7 +105,7 @@
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 840"
+      "note": "Cycle day 841"
     },
     {
       "label": "CHAT close",
@@ -129,6 +129,6 @@
     }
   ],
   "market_date": "2026-08-07",
-  "generated_at": "2026-08-08T21:01:11+00:00",
+  "generated_at": "2026-08-09T21:00:47+00:00",
   "footer": "Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
