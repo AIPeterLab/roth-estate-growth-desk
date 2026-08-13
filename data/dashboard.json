@@ -72,9 +72,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1955.8701994467206,
-      "return_pct": 5.041364094882965,
-      "diff": -16.069800553279492,
+      "value": 1955.8030045621326,
+      "return_pct": 5.037755347053306,
+      "diff": -16.136995437867427,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -129,7 +129,7 @@
     }
   ],
   "market_date": "2026-08-13",
-  "generated_at": "2026-08-13T23:29:17+00:00",
+  "generated_at": "2026-08-13T23:39:38+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
     "source_market_date": "2026-08-12",

@@ -7,7 +7,7 @@ from urllib.parse import quote
 from urllib.request import Request,urlopen
 
 ROOT=Path(__file__).resolve().parents[1]; MODE="roth"; START=date(2026,8,3); ROTH_INITIAL=1862.0
-SYMBOLS=["QQQ","QLD","SPY","SSO","CHAT","QTUM","BTC-USD"]
+SYMBOLS=["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]
 QQQ_SIGNALS_URL=os.environ.get("QQQ_SIGNALS_URL","https://raw.githubusercontent.com/AIPeterLab/qqq-qld-signal-desk/main/data/signals.json")
 MAX_SIGNAL_AGE_HOURS=int(os.environ.get("MAX_QQQ_SIGNAL_AGE_HOURS","96"))
 HALVING=date(2024,4,20); BTC_BUY=HALVING-timedelta(days=500); BTC_SELL=HALVING+timedelta(days=540)
@@ -19,7 +19,6 @@ def fetch(symbol):
     a=p["indicators"]["adjclose"][0]["adjclose"]
     return {datetime.fromtimestamp(t,timezone.utc).date():float(v) for t,v in zip(p["timestamp"],a) if v is not None}
 
-def sma(vals,n): return sum(vals[-n:])/n if len(vals)>=n else None
 def aligned(series):
     days=sorted(set.intersection(*(set(x) for x in series.values())))
     return days
@@ -34,16 +33,6 @@ def fetch_qqq_signals():
     history={date.fromisoformat(row["date"]):(row["model_state"],row["donchian_signal"],row.get("qqq_ema200"),row.get("qld_prior_20d_high"),row.get("qld_prior_20d_low")) for row in source.get("recent_history",[]) if row.get("model_state") in {"QLD","QQQ","Cash"}}
     history[date.fromisoformat(source["last_updated"])]=(state,signal,source.get("market",{}).get("qqq_ema200"),source.get("market",{}).get("qld_prior_20d_high"),source.get("market",{}).get("qld_prior_20d_low"))
     return source,history
-
-def spy_states(spy):
-    out={}; vals=[]; pos="Cash"
-    for d in sorted(spy):
-        vals.append(spy[d]); s=sma(vals,200)
-        if s:
-            if spy[d]>s*1.01:pos="SSO"
-            elif spy[d]<s*.99:pos="Cash"
-        out[d]=(pos,s)
-    return out
 
 def latest_on_or_before(mapping,d):
     k=max(x for x in mapping if x<=d); return mapping[k]
@@ -81,8 +70,8 @@ def assert_qqq_consistency(payload,source):
     if not sleeve or sleeve.get("position")!=expected_state or not metric or metric.get("value")!=f"Hold {expected_state}" or metric.get("note")!=expected_note:
         raise RuntimeError("Roth QQQ output differs from QQQ Signal Desk")
 def write():
-    qqq_source,qs=fetch_qqq_signals(); px={s:fetch(s) for s in SYMBOLS}; ss=spy_states(px["SPY"])
-    market=max(d for d in set(px["QQQ"])&set(px["SPY"])); qpos=qqq_source["current"]["model_state"]; qsig=qqq_source["current"]["donchian_signal"]; spos,ssma=latest_on_or_before(ss,market)
+    qqq_source,qs=fetch_qqq_signals(); px={s:fetch(s) for s in SYMBOLS}
+    market=max(d for d in set(px["QQQ"])&set(px["SPY"])); qpos=qqq_source["current"]["model_state"]; qsig=qqq_source["current"]["donchian_signal"]
     btc_day=max(px["BTC-USD"]); bpos="BTC" if BTC_BUY<=btc_day<=BTC_SELL else "Cash"; cycle=(btc_day-HALVING).days
     if MODE=="roth":
         vals,b1,b2,market=simulate_roth(px,qs); vals={k:round(v,2) for k,v in vals.items()}; total=sum(vals.values()); specs=[("QQQ / QLD",30,25,35,qpos,"Risk-on" if qpos=="QLD" else "Defensive"),("CHAT",25,20,30,"CHAT","Hold"),("QTUM",25,20,30,"QTUM","Hold"),("BTC / Cash",20,15,25,bpos,"Risk-on" if bpos=="BTC" else "Risk-off")]
