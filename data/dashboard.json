@@ -16,8 +16,8 @@
       "weight": 29.622098035437183,
       "target": 30,
       "drift": -0.3779019645628168,
-      "position": "QLD",
-      "signal": "Risk-on",
+      "position": "QQQ",
+      "signal": "Defensive",
       "action": "No action",
       "note": "Strategy signal controls position"
     },
@@ -72,9 +72,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1955.4205750071628,
-      "return_pct": 5.017216702855151,
-      "diff": -16.51942499283723,
+      "value": 1955.8701994467206,
+      "return_pct": 5.041364094882965,
+      "diff": -16.069800553279492,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -99,8 +99,8 @@
   "metrics": [
     {
       "label": "QQQ strategy",
-      "value": "Hold QLD",
-      "note": "Donchian signal 1"
+      "value": "Hold QQQ",
+      "note": "Donchian signal 0"
     },
     {
       "label": "BTC strategy",
@@ -124,11 +124,18 @@
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,955",
+      "value": "$1,956",
       "note": "Five-way equal weight"
     }
   ],
   "market_date": "2026-08-13",
-  "generated_at": "2026-08-13T21:00:14+00:00",
+  "generated_at": "2026-08-13T23:29:17+00:00",
+  "qqq_signal_source": {
+    "repository": "AIPeterLab/qqq-qld-signal-desk",
+    "source_market_date": "2026-08-12",
+    "source_generated_at": "2026-08-13T21:00:13+00:00",
+    "model_state": "QQQ",
+    "donchian_signal": 0
+  },
   "footer": "Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
