@@ -3,7 +3,7 @@
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
   "lead_label": "Live modeled Roth value",
-  "total_value": 1955.81,
+  "total_value": 1971.94,
   "required_action": "No action",
   "next_review": "August 2027",
   "explanation": "Live modeled values apply daily strategy returns to the actual $1,862 Roth account value from August 3, 2026. Private broker balances are not fetched.",
@@ -12,21 +12,21 @@
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 577.45,
-      "weight": 29.524851596013928,
+      "value": 584.13,
+      "weight": 29.622098035437183,
       "target": 30,
-      "drift": -0.47514840398607205,
-      "position": "QQQ",
-      "signal": "Defensive",
+      "drift": -0.3779019645628168,
+      "position": "QLD",
+      "signal": "Risk-on",
       "action": "No action",
       "note": "Strategy signal controls position"
     },
     {
       "name": "CHAT",
-      "value": 505.83,
-      "weight": 25.862941696790585,
+      "value": 510.85,
+      "weight": 25.9059606276053,
       "target": 25,
-      "drift": 0.8629416967905854,
+      "drift": 0.9059606276052996,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
@@ -34,10 +34,10 @@
     },
     {
       "name": "QTUM",
-      "value": 500.13,
-      "weight": 25.571502344297247,
+      "value": 504.56,
+      "weight": 25.586985405235453,
       "target": 25,
-      "drift": 0.5715023442972473,
+      "drift": 0.5869854052354526,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
@@ -46,9 +46,9 @@
     {
       "name": "BTC / Cash",
       "value": 372.4,
-      "weight": 19.040704362898236,
+      "weight": 18.884955931722057,
       "target": 20,
-      "drift": -0.9592956371017642,
+      "drift": -1.1150440682779426,
       "position": "Cash",
       "signal": "Risk-off",
       "action": "No action",
@@ -58,23 +58,23 @@
   "benchmarks": [
     {
       "name": "Active Roth account",
-      "value": 1955.81,
-      "return_pct": 5.038131041890438,
+      "value": 1971.94,
+      "return_pct": 5.904403866809886,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 1911.6747605642095,
-      "return_pct": 2.667817430945732,
-      "diff": -44.13523943579048,
+      "value": 1929.3988670161816,
+      "return_pct": 3.6197028472707586,
+      "diff": -42.54113298381844,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 1942.1432656551895,
-      "return_pct": 4.304149605541866,
-      "diff": -13.666734344810493,
+      "value": 1955.4205750071628,
+      "return_pct": 5.017216702855151,
+      "diff": -16.51942499283723,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -99,36 +99,36 @@
   "metrics": [
     {
       "label": "QQQ strategy",
-      "value": "Hold QQQ",
-      "note": "Donchian signal 0"
+      "value": "Hold QLD",
+      "note": "Donchian signal 1"
     },
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 844"
+      "note": "Cycle day 845"
     },
     {
       "label": "CHAT close",
-      "value": "$92.69",
+      "value": "$93.61",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$156.85",
+      "value": "$158.24",
       "note": "Buy and hold"
     },
     {
       "label": "Benchmark 1",
-      "value": "$1,912",
+      "value": "$1,929",
       "note": "50/50 QQQ/SPY"
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,942",
+      "value": "$1,955",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-08-12",
-  "generated_at": "2026-08-12T21:00:13+00:00",
+  "market_date": "2026-08-13",
+  "generated_at": "2026-08-13T21:00:14+00:00",
   "footer": "Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."
 }
