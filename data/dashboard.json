@@ -72,9 +72,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1951.8667375026052,
-      "return_pct": 4.82635539756204,
-      "diff": -19.253262497394644,
+      "value": 1952.5980990416324,
+      "return_pct": 4.865633675705297,
+      "diff": -18.521900958367496,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -105,7 +105,7 @@
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 846"
+      "note": "Cycle day 847"
     },
     {
       "label": "CHAT close",
@@ -124,16 +124,16 @@
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,952",
+      "value": "$1,953",
       "note": "Five-way equal weight"
     }
   ],
   "market_date": "2026-08-14",
-  "generated_at": "2026-08-14T21:00:58+00:00",
+  "generated_at": "2026-08-15T21:00:59+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
-    "source_market_date": "2026-08-13",
-    "source_generated_at": "2026-08-14T21:00:34+00:00",
+    "source_market_date": "2026-08-14",
+    "source_generated_at": "2026-08-15T21:00:34+00:00",
     "model_state": "QLD",
     "donchian_signal": 1
   },
