@@ -105,7 +105,7 @@
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 847"
+      "note": "Cycle day 848"
     },
     {
       "label": "CHAT close",
@@ -129,11 +129,11 @@
     }
   ],
   "market_date": "2026-08-14",
-  "generated_at": "2026-08-15T21:00:59+00:00",
+  "generated_at": "2026-08-16T21:00:50+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
     "source_market_date": "2026-08-14",
-    "source_generated_at": "2026-08-15T21:00:34+00:00",
+    "source_generated_at": "2026-08-16T21:00:25+00:00",
     "model_state": "QLD",
     "donchian_signal": 1
   },
