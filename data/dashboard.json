@@ -19,7 +19,9 @@
       "position": "QLD",
       "signal": "Risk-on",
       "action": "No action",
-      "note": "Strategy signal controls position"
+      "note": "Strategy signal controls position",
+      "price": 89.53,
+      "shares": 6.1859
     },
     {
       "name": "CHAT",
@@ -30,7 +32,9 @@
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
-      "note": "Annual thesis review"
+      "note": "Annual thesis review",
+      "price": 88.0,
+      "shares": 5.4572
     },
     {
       "name": "QTUM",
@@ -41,7 +45,9 @@
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
-      "note": "Annual thesis review"
+      "note": "Annual thesis review",
+      "price": 150.47,
+      "shares": 3.1885
     },
     {
       "name": "BTC / Cash",
@@ -52,7 +58,9 @@
       "position": "Cash",
       "signal": "Risk-off",
       "action": "No action",
-      "note": "Strategy signal controls position"
+      "note": "Strategy signal controls position",
+      "price": 1.0,
+      "shares": 372.4
     }
   ],
   "benchmarks": [
@@ -72,9 +80,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1976.7114074676479,
-      "return_pct": 6.160655610507405,
-      "diff": 90.48140746764784,
+      "value": 1983.1574414478255,
+      "return_pct": 6.506844331247336,
+      "diff": 96.92744144782546,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -124,16 +132,16 @@
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,977",
+      "value": "$1,983",
       "note": "Five-way equal weight"
     }
   ],
   "market_date": "2026-08-21",
-  "generated_at": "2026-08-21T21:00:50+00:00",
+  "generated_at": "2026-08-21T23:19:02+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
-    "source_market_date": "2026-08-20",
-    "source_generated_at": "2026-08-21T21:00:22+00:00",
+    "source_market_date": "2026-08-21",
+    "source_generated_at": "2026-08-21T22:47:17+00:00",
     "model_state": "QLD",
     "donchian_signal": 1
   },
