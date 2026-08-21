@@ -20,8 +20,8 @@
       "signal": "Risk-on",
       "action": "No action",
       "note": "Strategy signal controls position",
-      "price": 89.53,
-      "shares": 6.1859
+      "price": 89.52999877929688,
+      "shares": 6.4489
     },
     {
       "name": "CHAT",
@@ -46,8 +46,8 @@
       "signal": "Hold",
       "action": "No action",
       "note": "Annual thesis review",
-      "price": 150.47,
-      "shares": 3.1885
+      "price": 150.47000122070312,
+      "shares": 3.1886
     },
     {
       "name": "BTC / Cash",
@@ -80,9 +80,9 @@
     },
     {
       "name": "Benchmark 2",
-      "value": 1983.1574414478255,
-      "return_pct": 6.506844331247336,
-      "diff": 96.92744144782546,
+      "value": 1981.9372621292757,
+      "return_pct": 6.441313755600191,
+      "diff": 95.7072621292757,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -132,12 +132,12 @@
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,983",
+      "value": "$1,982",
       "note": "Five-way equal weight"
     }
   ],
   "market_date": "2026-08-21",
-  "generated_at": "2026-08-21T23:19:02+00:00",
+  "generated_at": "2026-08-21T23:31:07+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
     "source_market_date": "2026-08-21",

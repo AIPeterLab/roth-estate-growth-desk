@@ -63,11 +63,12 @@ def simulate_roth(px,qs):
     return values,b1,b2,market
 
 def status_action(weight,target,lo,hi):return "Rebalance toward target" if weight<lo or weight>hi else "No action"
-def add_holding_fields(sleeve,px,market):
+def add_holding_fields(sleeve,px,market,start_values):
     position=sleeve["position"]
     symbol="BTC-USD" if position=="BTC" else position
     price=1.0 if position=="Cash" else latest_on_or_before(px[symbol],market)
-    sleeve.update({"price":round(price,2),"shares":round(sleeve["value"]/price,4)})
+    start_price=1.0 if position=="Cash" else latest_on_or_before(px[symbol],START)
+    sleeve.update({"price":price,"shares":round(start_values[sleeve["name"]]/start_price,4)})
     return sleeve
 def assert_qqq_consistency(payload,source):
     expected_state=source["current"]["model_state"]; expected_note=f"Donchian signal {source['current']['donchian_signal']}"
@@ -99,6 +100,7 @@ def write():
     if out.exists():
         previous=json.loads(out.read_text(encoding="utf-8"))
         if previous.get("market_date","")>payload["market_date"]:raise RuntimeError(f"Refusing to replace newer market date {previous['market_date']} with {payload['market_date']}")
-    payload["sleeves"]=[add_holding_fields(x,px,market) for x in payload["sleeves"]]
+    start_values={"QQQ / QLD":ROTH_INITIAL*.30,"CHAT":ROTH_INITIAL*.25,"QTUM":ROTH_INITIAL*.25,"BTC / Cash":ROTH_INITIAL*.20}
+    payload["sleeves"]=[add_holding_fields(x,px,market,start_values) for x in payload["sleeves"]]
     out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
 if __name__=="__main__":write()
