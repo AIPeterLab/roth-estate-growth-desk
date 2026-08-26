@@ -3,7 +3,7 @@
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
   "lead_label": "Live modeled Roth value",
-  "total_value": 1872.12,
+  "total_value": 1874.47,
   "required_action": "No action",
   "next_review": "August 2027",
   "explanation": "Live modeled values apply daily strategy returns to the actual $1,862 Roth account value from August 3, 2026. Private broker balances are not fetched.",
@@ -12,49 +12,49 @@
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 549.31,
-      "weight": 29.341602034057644,
+      "value": 550.11,
+      "weight": 29.34749555874461,
       "target": 30,
-      "drift": -0.6583979659423562,
+      "drift": -0.6525044412553918,
       "position": "QLD",
       "signal": "Risk-on",
       "action": "No action",
       "note": "Strategy signal controls position",
-      "price": 88.80000305175781,
+      "price": 88.93000030517578,
       "shares": 6.4489
     },
     {
       "name": "CHAT",
-      "value": 475.98,
-      "weight": 25.424652265880393,
+      "value": 477.56,
+      "weight": 25.47706818460685,
       "target": 25,
-      "drift": 0.4246522658803933,
+      "drift": 0.47706818460684985,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
       "note": "Annual thesis review",
-      "price": 87.22000122070312,
+      "price": 87.51000213623047,
       "shares": 5.4572
     },
     {
       "name": "QTUM",
-      "value": 474.43,
-      "weight": 25.341858427878556,
+      "value": 474.4,
+      "weight": 25.308487199048262,
       "target": 25,
-      "drift": 0.3418584278785559,
+      "drift": 0.30848719904826183,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
       "note": "Annual thesis review",
-      "price": 148.7899932861328,
+      "price": 148.77999877929688,
       "shares": 3.1886
     },
     {
       "name": "BTC / Cash",
       "value": 372.4,
-      "weight": 19.891887272183407,
+      "weight": 19.86694905760028,
       "target": 20,
-      "drift": -0.10811272781659298,
+      "drift": -0.13305094239971993,
       "position": "Cash",
       "signal": "Risk-off",
       "action": "No action",
@@ -66,23 +66,23 @@
   "benchmarks": [
     {
       "name": "Active Roth account",
-      "value": 1872.12,
-      "return_pct": 0.5435016111707824,
+      "value": 1874.47,
+      "return_pct": 0.6697099892588625,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 1886.418548693932,
-      "return_pct": 1.311415074862083,
-      "diff": 14.298548693932162,
+      "value": 1887.490614953967,
+      "return_pct": 1.3689911360884537,
+      "diff": 13.02061495396697,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 1975.237503975603,
-      "return_pct": 6.081498602341725,
-      "diff": 103.11750397560309,
+      "value": 1976.3817812924121,
+      "return_pct": 6.142952808400224,
+      "diff": 101.91178129241212,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -113,35 +113,35 @@
     {
       "label": "BTC strategy",
       "value": "Hold Cash",
-      "note": "Cycle day 857"
+      "note": "Cycle day 858"
     },
     {
       "label": "CHAT close",
-      "value": "$87.22",
+      "value": "$87.51",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$148.79",
+      "value": "$148.78",
       "note": "Buy and hold"
     },
     {
       "label": "Benchmark 1",
-      "value": "$1,886",
+      "value": "$1,887",
       "note": "50/50 QQQ/SPY"
     },
     {
       "label": "Benchmark 2",
-      "value": "$1,975",
+      "value": "$1,976",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-08-25",
-  "generated_at": "2026-08-25T22:15:49+00:00",
+  "market_date": "2026-08-26",
+  "generated_at": "2026-08-26T22:15:45+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
-    "source_market_date": "2026-08-25",
-    "source_generated_at": "2026-08-25T22:15:24+00:00",
+    "source_market_date": "2026-08-26",
+    "source_generated_at": "2026-08-26T22:15:22+00:00",
     "model_state": "QLD",
     "donchian_signal": 1
   },
