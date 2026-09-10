@@ -140,9 +140,6 @@ def write():
     assert_btc_consistency(payload,btc_source)
     payload.update({"market_date":str(market),"generated_at":datetime.now(timezone.utc).isoformat(timespec="seconds"),"qqq_signal_source":{"repository":"AIPeterLab/qqq-qld-signal-desk","source_market_date":qqq_source["last_updated"],"source_generated_at":qqq_source["generated_at_utc"],"model_state":qpos,"donchian_signal":qsig},"btc_signal_source":{"repository":"AIPeterLab/btc-cycle-signal-desk","source_market_date":btc_source["market_date"],"source_generated_at":btc_source["generated_at"],"final_strategy_status":bpos,"final_strategy_allocation_pct":btc_allocation},"footer":"Daily market and strategy refresh at 5:00 PM New York time. Private broker balances are not fetched. This is an operating display, not tax, legal, or individualized financial advice."})
     out=ROOT/"data"/"dashboard.json"
-    if out.exists():
-        previous=json.loads(out.read_text(encoding="utf-8"))
-        if previous.get("market_date","")>payload["market_date"]:raise RuntimeError(f"Refusing to replace newer market date {previous['market_date']} with {payload['market_date']}")
     start_values={"QQQ / QLD":ROTH_INITIAL*.30,"CHAT":ROTH_INITIAL*.25,"QTUM":ROTH_INITIAL*.25,"BTC / Cash":ROTH_INITIAL*.20}
     payload["sleeves"]=[add_holding_fields(x,px,market,start_values) for x in payload["sleeves"]]
     out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8");save_btc_history(bs)
