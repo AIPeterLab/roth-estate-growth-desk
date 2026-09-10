@@ -14,7 +14,7 @@ This repository publishes the Roth Estate-Growth Desk at `roth.aipeterlab.com`. 
 - `README.md`: short public project description.
 - `AGENTS.md`: durable Codex rules.
 
-The updater obtains market prices from Yahoo Finance's chart endpoint and QQQ strategy data from the AIPeterLab QQQ/QLD signal repository. Strategy output is cross-checked before JSON is written. Private brokerage balances must remain out of public integrations and output.
+The updater obtains market prices from Yahoo Finance's chart endpoint and strategy data from the AIPeterLab QQQ/QLD and BTC signal desks. Strategy output is cross-checked before JSON is written. The BTC Desk percentage applies within the 20% BTC/Cash sleeve. Private brokerage balances must remain out of public integrations and output.
 
 ## Recreate and operate
 
@@ -28,6 +28,7 @@ python -m py_compile scripts/update_dashboard.py
 Optional environment-variable override names (never commit their values):
 
 - `QQQ_SIGNALS_URL`
+- `BTC_SIGNALS_URL`
 - `MAX_QQQ_SIGNAL_AGE_HOURS`
 
 External services: GitHub repository `AIPeterLab/roth-estate-growth-desk`, GitHub Actions with `contents: write`, upstream raw GitHub signal data, Yahoo Finance market data, and Cloudflare hosting/custom domain configuration.

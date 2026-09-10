@@ -17,4 +17,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update daily retirement dashboard
-          file_pattern: data/dashboard.json
+          file_pattern: data/dashboard.json data/btc_allocation_history.json
