@@ -3,7 +3,7 @@
   "title": "Roth Estate-Growth Desk",
   "subtitle": "Aggressive long-horizon portfolio \u00b7 strategy rules before rebalancing",
   "lead_label": "Live modeled Roth value",
-  "total_value": 1903.56,
+  "total_value": 1914.92,
   "required_action": "No action",
   "next_review": "August 2027",
   "explanation": "Live modeled values apply daily strategy returns to the actual $1,862 Roth account value from August 3, 2026. Private broker balances are not fetched.",
@@ -12,82 +12,82 @@
   "sleeves": [
     {
       "name": "QQQ / QLD",
-      "value": 558.62,
-      "weight": 29.34606736850953,
+      "value": 560.69,
+      "weight": 29.280074363419885,
       "target": 30,
-      "drift": -0.6539326314904699,
+      "drift": -0.7199256365801148,
       "position": "QLD",
       "signal": "Risk-on",
       "action": "No action",
       "note": "Strategy signal controls position",
-      "price": 94.87000274658203,
+      "price": 95.22000122070312,
       "shares": 6.4506
     },
     {
       "name": "CHAT",
-      "value": 497.26,
-      "weight": 26.122633381663828,
+      "value": 504.03,
+      "weight": 26.32120401896685,
       "target": 25,
-      "drift": 1.122633381663828,
+      "drift": 1.3212040189668492,
       "position": "CHAT",
       "signal": "Hold",
       "action": "No action",
       "note": "Annual thesis review",
-      "price": 91.12000274658203,
+      "price": 92.36000061035156,
       "shares": 5.4572
     },
     {
       "name": "QTUM",
-      "value": 484.08,
-      "weight": 25.430246485532372,
+      "value": 485.71,
+      "weight": 25.364506089027216,
       "target": 25,
-      "drift": 0.430246485532372,
+      "drift": 0.36450608902721626,
       "position": "QTUM",
       "signal": "Hold",
       "action": "No action",
       "note": "Annual thesis review",
-      "price": 151.36000061035156,
+      "price": 151.8699951171875,
       "shares": 3.1982
     },
     {
       "name": "BTC / Cash",
-      "value": 363.6,
-      "weight": 19.10105276429427,
+      "value": 364.49,
+      "weight": 19.034215528586053,
       "target": 20,
-      "drift": -0.8989472357057302,
+      "drift": -0.9657844714139472,
       "position": "Hold 50% BTC",
       "signal": "Partial allocation",
       "action": "No action",
       "note": "50% of this 20% sleeve is in BTC; 50% is cash",
       "btc_allocation_pct": 50.0,
       "cash_allocation_pct": 50.0,
-      "effective_btc_weight": 9.550526382147135,
-      "price": 83169.15625,
-      "shares": 0.00218591,
-      "btc_value": 181.8,
-      "cash_value": 181.8
+      "effective_btc_weight": 9.517107764293026,
+      "price": 83581.5234375,
+      "shares": 0.00218045,
+      "btc_value": 182.25,
+      "cash_value": 182.25
     }
   ],
   "benchmarks": [
     {
       "name": "Active Roth account",
-      "value": 1903.56,
-      "return_pct": 2.2320085929108444,
+      "value": 1914.92,
+      "return_pct": 2.8421052631578902,
       "diff": 0,
       "rule": "30/25/25/20 active rules"
     },
     {
       "name": "Benchmark 1",
-      "value": 1923.505687866672,
-      "return_pct": 3.3032055782315837,
-      "diff": 19.94568786667196,
+      "value": 1923.5625482694525,
+      "return_pct": 3.3062593055559972,
+      "diff": 8.64254826945239,
       "rule": "QQQ 50% / SPY 50%"
     },
     {
       "name": "Benchmark 2",
-      "value": 2039.9305939976184,
-      "return_pct": 9.555885821569191,
-      "diff": 136.37059399761847,
+      "value": 2048.9127209729013,
+      "return_pct": 10.038277173625204,
+      "diff": 133.99272097290122,
       "rule": "QQQ/SPY/BTC/CHAT/QTUM 20% each"
     }
   ],
@@ -118,16 +118,16 @@
     {
       "label": "BTC strategy",
       "value": "Hold 50% BTC",
-      "note": "10% effective Roth target \u00b7 cycle day 888"
+      "note": "10% effective Roth target \u00b7 cycle day 892"
     },
     {
       "label": "CHAT close",
-      "value": "$91.12",
+      "value": "$92.36",
       "note": "Buy and hold"
     },
     {
       "label": "QTUM close",
-      "value": "$151.36",
+      "value": "$151.87",
       "note": "Buy and hold"
     },
     {
@@ -137,23 +137,23 @@
     },
     {
       "label": "Benchmark 2",
-      "value": "$2,040",
+      "value": "$2,049",
       "note": "Five-way equal weight"
     }
   ],
-  "market_date": "2026-09-28",
-  "generated_at": "2026-09-28T22:16:12+00:00",
+  "market_date": "2026-09-29",
+  "generated_at": "2026-09-29T22:16:08+00:00",
   "qqq_signal_source": {
     "repository": "AIPeterLab/qqq-qld-signal-desk",
-    "source_market_date": "2026-09-28",
-    "source_generated_at": "2026-09-28T22:15:46+00:00",
+    "source_market_date": "2026-09-29",
+    "source_generated_at": "2026-09-29T22:15:43+00:00",
     "model_state": "QLD",
     "donchian_signal": 1
   },
   "btc_signal_source": {
     "repository": "AIPeterLab/btc-cycle-signal-desk",
-    "source_market_date": "2026-09-25",
-    "source_generated_at": "2026-09-25T22:16:13.368857+00:00",
+    "source_market_date": "2026-09-29",
+    "source_generated_at": "2026-09-29T22:15:39.616700+00:00",
     "final_strategy_status": "Hold 50% BTC",
     "final_strategy_allocation_pct": 50.0
   },
