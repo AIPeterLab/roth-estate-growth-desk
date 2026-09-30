@@ -135,6 +135,10 @@
     {
       "date": "2026-09-29",
       "allocation_pct": 50.0
+    },
+    {
+      "date": "2026-09-30",
+      "allocation_pct": 50.0
     }
   ]
 }
