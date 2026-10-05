@@ -147,6 +147,18 @@
     {
       "date": "2026-10-02",
       "allocation_pct": 50.0
+    },
+    {
+      "date": "2026-10-03",
+      "allocation_pct": 50.0
+    },
+    {
+      "date": "2026-10-04",
+      "allocation_pct": 50.0
+    },
+    {
+      "date": "2026-10-05",
+      "allocation_pct": 50.0
     }
   ]
 }
