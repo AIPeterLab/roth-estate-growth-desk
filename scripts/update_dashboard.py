@@ -69,24 +69,28 @@ def latest_on_or_before(mapping,d):
     k=max(x for x in mapping if x<=d); return mapping[k]
 
 def simulate_roth(px,qs,bs):
+    # qs is a rolling window: clamp the start to its back edge so the first
+    # simulated day always has a signal. A hard START would KeyError once the
+    # window rolls past it (e.g. 2026-08-03 aging out).
+    start=max(START,min(qs))
     values={"QQQ / QLD":ROTH_INITIAL*.30,"CHAT":ROTH_INITIAL*.25,"QTUM":ROTH_INITIAL*.25,"BTC / Cash":ROTH_INITIAL*.20}
     b1=ROTH_INITIAL;b2=ROTH_INITIAL
     market=max(set(px["QQQ"])&set(px["SPY"]))
-    qdays=[d for d in sorted(set(px["QQQ"])&set(px["QLD"])) if d>=START and d<=market]
+    qdays=[d for d in sorted(set(px["QQQ"])&set(px["QLD"])) if d>=start and d<=market]
     prev=qdays[0]
     for d in qdays[1:]:
         oldpos=qs[prev][0]; values["QQQ / QLD"]*=px[oldpos][d]/px[oldpos][prev] if oldpos!="Cash" else 1
         prev=d
     for name,symbol in [("CHAT","CHAT"),("QTUM","QTUM")]:
-        days=[d for d in sorted(px[symbol]) if d>=START and d<=market]
+        days=[d for d in sorted(px[symbol]) if d>=start and d<=market]
         if days:values[name]*=px[symbol][days[-1]]/px[symbol][days[0]]
-    bdays=[d for d in sorted(px["BTC-USD"]) if d>=START and d<=market]
+    bdays=[d for d in sorted(px["BTC-USD"]) if d>=start and d<=market]
     prev=bdays[0]
     for d in bdays[1:]:
         btc_weight=btc_allocation_on(prev,bs)
         values["BTC / Cash"]*=btc_weight*px["BTC-USD"][d]/px["BTC-USD"][prev]+(1-btc_weight)
         prev=d
-    benchmark_days=[d for d in aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]}) if d>=START and d<=market]
+    benchmark_days=[d for d in aligned({k:px[k] for k in ["QQQ","QLD","SPY","CHAT","QTUM","BTC-USD"]}) if d>=start and d<=market]
     prev=benchmark_days[0]
     for d in benchmark_days[1:]:
         b1*=.5*px["QQQ"][d]/px["QQQ"][prev]+.5*px["SPY"][d]/px["SPY"][prev]
